@@ -18,7 +18,7 @@
   const params = new URLSearchParams(window.location.search);
   const docId = params.get("doc");
 
-  fetch("PUT_YOUR_SCRIPT_URL_HERE?doc=" + docId)
+  fetch("https://script.google.com/macros/s/AKfycbzQFM_KfLOkS29aorBIiWNUJyqV3Nq17YQNcg4jHgYRRmJu_OaehhJsaL2P6IoFvQ1H/exec" + docId)
     .then(res => res.text())
     .then(text => {
       document.getElementById("post").innerText = text;
