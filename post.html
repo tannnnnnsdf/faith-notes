@@ -1,11 +1,11 @@
-<article id="post"></article>
+<article id="post">กำลังโหลด...</article>
 
 <script>
-const docId = new URLSearchParams(location.search).get("doc");
+const url = new URLSearchParams(location.search).get("url");
 
-fetch("https://script.google.com/macros/s/AKfycbxpPbN7KicU4HOOzLkcW51pQXTRoKQ_7R17bp1_4TdJiOQIT0EMwM0JCOXz9u8VZl3t3g/exec?type=post&doc=" + docId)
-  .then(res => res.text())
-  .then(text => {
-    document.getElementById("post").innerText = text;
+fetch(url)
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById("post").innerHTML = html;
   });
 </script>
