@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Faith Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<main class="container">
+  <article id="post">
+    <p>กำลังโหลดบทความ...</p>
+  </article>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const docId = params.get("doc");
+
+  fetch("PUT_YOUR_SCRIPT_URL_HERE?doc=" + docId)
+    .then(res => res.text())
+    .then(text => {
+      document.getElementById("post").innerText = text;
+    });
+</script>
+
+</body>
+</html>
