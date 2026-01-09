@@ -1,16 +1,24 @@
 <ul id="posts"></ul>
 
 <script>
-fetch("https://script.google.com/macros/s/AKfycbxpPbN7KicU4HOOzLkcW51pQXTRoKQ_7R17bp1_4TdJiOQIT0EMwM0JCOXz9u8VZl3t3g/exec?type=posts")
-  .then(res => res.json())
-  .then(posts => {
+const SHEET_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRIoNsQBQAFMWEWACJJnrfKBVmpwJWrEEGAh52Aom4x3GlQ3Pz1k4KM5Oot_9PbMNoYA-VMXuQ8Dhfl/pub?gid=0&single=true&output=csv";
+
+fetch(SHEET_CSV)
+  .then(r => r.text())
+  .then(text => {
+    const rows = text.split("\n").slice(1);
     const ul = document.getElementById("posts");
-    posts.forEach(p => {
+
+    rows.forEach(row => {
+      const [title, url, date, excerpt, status] = row.split(",");
+
+      if (status?.trim() !== "publish") return;
+
       ul.innerHTML += `
         <li>
-          <a href="post.html?doc=${p.docId}">
-            <h3>${p.title}</h3>
-            <p>${p.excerpt}</p>
+          <a href="post.html?url=${encodeURIComponent(url)}">
+            <h3>${title}</h3>
+            <p>${excerpt}</p>
           </a>
         </li>`;
     });
