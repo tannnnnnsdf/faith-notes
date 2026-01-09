@@ -1,29 +1,11 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <title>Faith Notes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<main class="container">
-  <article id="post">
-    <p>กำลังโหลดบทความ...</p>
-  </article>
-</main>
+<article id="post"></article>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const docId = params.get("doc");
+const docId = new URLSearchParams(location.search).get("doc");
 
-  fetch("https://script.google.com/macros/s/AKfycbw6IGtIqa0kL0T5jpU6ynkSABo7LF9ynS1sZBgb3vMijxsKqV3jfEgkMbVb-eyG73V7/exec" + docId)
-    .then(res => res.text())
-    .then(text => {
-      document.getElementById("post").innerText = text;
-    });
+fetch("https://script.google.com/macros/s/AKfycbwjLw1x0gfqA-DH28A2Z1THDj26cjwTmApsiD3WX0x16_HYcOm3HBtNTCKUgzLihiXJQA/exec?type=post&doc=" + docId)
+  .then(res => res.text())
+  .then(text => {
+    document.getElementById("post").innerText = text;
+  });
 </script>
-
-</body>
-</html>
