@@ -18,7 +18,7 @@
   const params = new URLSearchParams(window.location.search);
   const docId = params.get("doc");
 
-  fetch("https://script.google.com/macros/s/AKfycbzQFM_KfLOkS29aorBIiWNUJyqV3Nq17YQNcg4jHgYRRmJu_OaehhJsaL2P6IoFvQ1H/exec" + docId)
+  fetch("https://script.google.com/macros/s/AKfycbw6IGtIqa0kL0T5jpU6ynkSABo7LF9ynS1sZBgb3vMijxsKqV3jfEgkMbVb-eyG73V7/exec" + docId)
     .then(res => res.text())
     .then(text => {
       document.getElementById("post").innerText = text;
