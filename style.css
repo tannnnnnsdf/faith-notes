@@ -1,9 +1,0 @@
-body {
-  font-family: system-ui, sans-serif;
-  max-width: 720px;
-  margin: auto;
-  padding: 2rem;
-  line-height: 1.7;
-}
-a { color: #333; text-decoration: none; }
-li { margin-bottom: 1.5rem; }
